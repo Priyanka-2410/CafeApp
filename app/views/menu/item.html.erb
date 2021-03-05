@@ -1,0 +1,7 @@
+ <% @items.each do |i| %>
+ <span><%= i.price %> <%= "| Available for catering" if i.available %></span>
+        <%= form_with model: @order_item do |f| %>
+        <%= f.hidden_field :item_id, value: item.id %>
+        <%= f.number_field :quantity, value: 1, min: 1%>
+        <%= f.submit "Add To Cart" %>
+        <% end %>

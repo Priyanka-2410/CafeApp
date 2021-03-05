@@ -1,0 +1,14 @@
+<%= @order_items.each do |i|%>
+<h5><%= i.item.name%>
+	Rs:<%= i.item.price%>
+<%= form_with model: i do |f|%>
+<%= f.hidden_field :item_id, value: i.item.id %>
+<%= f.number_field :quantity, value: i.quantity.to_i %>
+<%= f.submit "Update Cart" %>
+<%= link_to "Remove Items", i, method: :delete %>
+<% end%>
+<h5>Subtotal: <%= i.total %></h5>
+<% end %>
+
+<h5>Your current order has a total of: <%= current_order.subtotal %></h3>	
+<%= link_to "place order",pages_status_path,class: 'btn btn-dark'%>

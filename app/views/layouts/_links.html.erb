@@ -1,0 +1,12 @@
+<div class="col-2">
+	<h5 class="link-container">
+		<%= link_to "Home",root_path,class: "link #{@pages == 'index' ? 'active' : ''}"%>
+	</h5>
+    <h5 class="link-container">
+		<%= link_to "Menu","",class: "link #{@pages == 'menu' ? 'active' : ''}"%>
+	</h5>
+	<h5 class="link-container">
+		<%= link_to "Cart","",class: "link #{@pages == 'cart' ? 'active' : ''}"%>
+	</h5>
+
+</div>

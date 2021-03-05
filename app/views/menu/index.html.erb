@@ -1,0 +1,19 @@
+<div class="menu-container">
+    <div class="row">
+        <% @items.each do |product| %>
+        <div class="col-4">
+            <h5><%=product.name %></h5>
+            <span><%= product.price %><br> 
+            <%= product.available ? "Available for catering" : "" %>
+            <br>
+            <%= form_with model: @order_item do |f| %>
+        <%= f.hidden_field :item_id, value: product.id %>
+        <%= f.number_field :quantity, value: 1, min: 1%>
+        <br>
+        <%= f.submit "Add To Cart" %>
+        <% end %>
+            	<br><br>
+        </div>
+        <% end %>
+    </div>
+</div>
